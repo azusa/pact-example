@@ -11,6 +11,9 @@ build:
     code: |
      (cd zoo-app && bundle install)
      (cd animal-service && bundle install)
-
+  - script:
+    name: run the spec
+    code: |
+     (cd zoo-app &&  bundle exec rspec spec/service_providers/animal_service_client_spec.rb)
 
 
