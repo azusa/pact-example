@@ -15,5 +15,13 @@ build:
     name: run the spec
     code: |
      (cd zoo-app &&  bundle exec rspec spec/service_providers/animal_service_client_spec.rb)
-
+  - script:
+    name: "copy pacts file"
+    code: |
+     mkdir -p animal-service/spec/service_consumers/pacts
+     cp zoo-app/spec/pacts/*.json animal-service/spec/service_consumers/pacts/
+  - script:
+    name: "run the spec."
+    code: |
+     (cd animal-service && bundle exec rake)
 
